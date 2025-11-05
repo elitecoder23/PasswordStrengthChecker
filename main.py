@@ -31,7 +31,7 @@ def check_password_strength(password):
         if char in "!@#$%^&*()-+":
             has_special = True
 
-    if not has_lower:
+    if has_lower == False:
         feedback.append("Add lowercase letters")
     if not has_upper:
         feedback.append("Add uppercase letters")
@@ -39,8 +39,12 @@ def check_password_strength(password):
         feedback.append("Add digits")
     if not has_special:
         feedback.append("Add special characters")
+    
+    for element in feedback:
+        print(element)
+    
+    
 
-    print(score)
-    print(feedback)
 
-print(check_password_strength("MyPassword123!"))
+print("Welcome to the Password Strength Checker!")
+print(check_password_strength("12345678"))
