@@ -9,19 +9,38 @@ def check_password_strength(password):
 # The first thing we want to do is check the length of the password
     password_length = len(password)
     if password_length < 8:
-        return "The password is way too short"
+        print("The password is too short")
         score += 1
     elif password_length < 12:
-        return "The password is somewhat short so it could be longer"
+        print("The password is somewhat short so it could be longer")
         score += 2
     elif password_length > 12 and password_length < 16:
-        return "The password length is alright"
+        print("The password length is alright")
         score += 3
     else:
-        return "The password length is great!"
+        print("The password length is great!")
         score += 4
 
-    
-    
+    for char in password:
+        if char in "abcdefghijklmnopqrstuvwxyz":
+            has_lower = True
+        if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            has_upper = True
+        if char in "0123456789":
+            has_digit = True
+        if char in "!@#$%^&*()-+":
+            has_special = True
 
-    
+    if not has_lower:
+        feedback.append("Add lowercase letters")
+    if not has_upper:
+        feedback.append("Add uppercase letters")
+    if not has_digit:
+        feedback.append("Add digits")
+    if not has_special:
+        feedback.append("Add special characters")
+
+    print(score)
+    print(feedback)
+
+print(check_password_strength("MyPassword123!"))
