@@ -1,0 +1,2 @@
+# PasswordStrengthChecker
+Checks password strengths
